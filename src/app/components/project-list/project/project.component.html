@@ -1,0 +1,101 @@
+<div class="card shadow-sm">
+  <div class="card-body">
+
+    <!-- Name and Status -->
+    <div class="d-flex justify-content-between align-items-center mb-1">
+      <div>
+        <h5 *ngIf="!editMode" class="card-title text-muted">
+          {{ project.projectName }} -
+          <span class="badge bg-info">{{ project.status }}</span>
+        </h5>
+        <div *ngIf="editMode">
+          <label class="form-label">Name:</label>
+          <input
+            type="text"
+            [(ngModel)]="project.projectName"
+            class="form-control form-control-sm"
+            placeholder="Project Name"
+          />
+          <label class="form-label mt-2">Status:</label>
+          <select [(ngModel)]="project.status" class="form-select form-select-sm">
+            <option value="Not Started">Not Started</option>
+            <option value="Active">Active</option>
+            <option value="Completed">Completed</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div>
+        <button
+          class="btn btn-secondary btn-sm me-2"
+          (click)="openAddProjectTaskModal()"
+        >
+          <i class="bi bi-plus-circle"></i>
+        </button>
+        <button
+          *ngIf="!editMode"
+          class="btn btn-primary btn-sm me-2"
+          (click)="enterEditMode()"
+        >
+          <i class="bi bi-pencil-square"></i>
+        </button>
+        <button
+          *ngIf="editMode"
+          class="btn btn-success btn-sm me-2"
+          (click)="saveChanges()"
+        >
+          <i class="bi bi-save"></i>
+        </button>
+        <button
+          class="btn btn-danger btn-sm"
+          (click)="deleteProject()"
+        >
+          <i class="bi bi-trash"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="mb-3">
+      <p *ngIf="!editMode">{{ project.description }}</p>
+      <div *ngIf="editMode">
+        <label class="form-label">Description:</label>
+        <textarea
+          [(ngModel)]="project.description"
+          rows="3"
+          class="form-control form-control-sm"
+          placeholder="Project Description"
+        ></textarea>
+      </div>
+    </div>
+
+    <span *ngIf="!editMode && project.startDate">Start Date: {{ project.startDate | date: 'shortDate' }} <br /></span>
+    <div *ngIf="editMode">
+      Start Date:
+      <input
+        type="date"
+        [(ngModel)]="startDateString"
+        class="form-control form-control-sm"
+      />
+    </div>
+
+    <span *ngIf="!editMode && project.dueDate">Due Date: {{ project.dueDate | date: 'shortDate' }} <br /></span>
+    <div *ngIf="editMode">
+      Due Date:
+      <input
+        type="date"
+        [(ngModel)]="dueDateString"
+        class="form-control form-control-sm"
+      />
+    </div>
+
+    <!-- List of Project Tasks -->
+    <ul class="list-group">
+      <li *ngFor="let projectTaskID of listOfProjectTaskIDs" class="list-group-item">
+        <app-project-task [projectTaskID]="projectTaskID"></app-project-task>
+      </li>
+    </ul>
+
+  </div>
+</div>

@@ -24,43 +24,43 @@ export class ProjectTaskService {
     return this.projectTasks;
   }
 
-  getListOfProjectTaskIdsByProjectIds(projectId: number): number[] {
-    let listOfProjectTaskIdsByProjectIds: number[] = [];
+  getListOfProjectTaskIDsByProjectIDs(projectID: number): number[] {
+    let listOfProjectTaskIDsByProjectIDs: number[] = [];
     for (var projectTask of this.projectTasks) {
-      if(projectTask.projectId === projectId) {
-        listOfProjectTaskIdsByProjectIds.push(projectTask.projectTaskId);
+      if(projectTask.projectID === projectID) {
+        listOfProjectTaskIDsByProjectIDs.push(projectTask.projectTaskID);
       }
     }
-    return listOfProjectTaskIdsByProjectIds;
+    return listOfProjectTaskIDsByProjectIDs;
   }
 
   // Get tasks by project ID
-  getTasksByProjectId(projectId: number): ProjectTask[] {
-    return this.projectTasks.filter((task) => task.projectId === projectId);
+  getTasksByProjectID(projectID: number): ProjectTask[] {
+    return this.projectTasks.filter((task) => task.projectID === projectID);
   }
 
   // Get a project task by ID
-  getProjectTaskById(taskId: number): ProjectTask {
-    return this.projectTasks.find((task) => task.projectTaskId === taskId)!;
+  getProjectTaskByID(taskID: number): ProjectTask {
+    return this.projectTasks.find((task) => task.projectTaskID === taskID)!;
   }
 
   // Add a new project task
   addProjectTask(newProjectTask: ProjectTask): void {
-    newProjectTask.projectTaskId = this.projectTasks.length+1;
+    newProjectTask.projectTaskID = this.projectTasks.length+1;
     this.projectTasks.push(newProjectTask);
   }
 
   // Update an existing project task
   updateProjectTask(updatedTask: ProjectTask): void {
-    const index = this.projectTasks.findIndex((task) => task.projectTaskId === updatedTask.projectTaskId);
+    const index = this.projectTasks.findIndex((task) => task.projectTaskID === updatedTask.projectTaskID);
     if (index !== -1) {
       this.projectTasks[index] = updatedTask;
     }
   }
 
   // Delete a project task
-  deleteProjectTask(projectTaskId: number): void {
-    const index = this.projectTasks.findIndex(task => task.projectTaskId === projectTaskId);
+  deleteProjectTask(projectTaskID: number): void {
+    const index = this.projectTasks.findIndex(task => task.projectTaskID === projectTaskID);
     if (index !== -1) {
       this.projectTasks.splice(index, 1);
       this.projectTasksChangedSource.next(); // Notify subscribers that the task list has changed

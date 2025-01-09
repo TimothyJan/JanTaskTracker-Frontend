@@ -22,37 +22,37 @@ export class ProjectService {
     return this.projects;
   }
 
-  /** Get list of all projectIds */
-  getListOfProjectIds(): number[] {
-    let listOfProjectIds: number[] = [];
+  /** Get list of all projectIDs */
+  getListOfProjectIDs(): number[] {
+    let listOfProjectIDs: number[] = [];
     this.projects.forEach((project) => {
-      listOfProjectIds.push(project.projectId);
+      listOfProjectIDs.push(project.projectID);
     });
-    return listOfProjectIds;
+    return listOfProjectIDs;
   }
 
   // Get a project by ID
-  getProjectById(projectId: number): Project {
-    return this.projects.find((project) => project.projectId === projectId)!;
+  getProjectByID(projectID: number): Project {
+    return this.projects.find((project) => project.projectID === projectID)!;
   }
 
   // Add a new project
   addProject(newProject: Project): void {
-    newProject.projectId = this.projects.length+1;
+    newProject.projectID = this.projects.length+1;
     this.projects.push(newProject);
   }
 
   // Update an existing project
   updateProject(updatedProject: Project): void {
-    const index = this.projects.findIndex((project) => project.projectId === updatedProject.projectId);
+    const index = this.projects.findIndex((project) => project.projectID === updatedProject.projectID);
     if (index !== -1) {
       this.projects[index] = updatedProject;
     }
   }
 
   // Delete a project
-  deleteProject(projectId: number): void {
-    const index = this.projects.findIndex(project => project.projectId === projectId);
+  deleteProject(projectID: number): void {
+    const index = this.projects.findIndex(project => project.projectID === projectID);
     if (index !== -1) {
       this.projects.splice(index, 1);
       this.projectsChangedSource.next(); // Notify subscribers that the project list has changed

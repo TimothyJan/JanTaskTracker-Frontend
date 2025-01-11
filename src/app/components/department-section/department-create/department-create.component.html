@@ -1,0 +1,21 @@
+<div class="form-container">
+  <h2 class="text-center mb-4">Add New Department</h2>
+
+  <form [formGroup]="departmentForm" (ngSubmit)="onSubmit()">
+    <div class="mb-3">
+      <label for="departmentName" class="form-label">Department Name</label>
+      <input
+        type="text"
+        id="departmentName"
+        class="form-control"
+        formControlName="departmentName"
+        placeholder="Enter department name"
+      />
+      <div *ngIf="departmentForm.get('departmentName')!.touched && departmentForm.get('departmentName')!.invalid" class="text-danger">
+        Department name is required and must be between 2 and 50 characters.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100 mt-3" [disabled]="departmentForm.invalid">Add Department</button>
+  </form>
+</div>

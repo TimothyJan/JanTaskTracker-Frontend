@@ -1,0 +1,59 @@
+<div class="role-container text-center">
+  <h1 class="display-4 mb-4">Role List</h1>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Role ID</th>
+          <th>Department</th>
+          <th>Role Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let role of roles">
+          <td>{{ role.roleID }}</td>
+
+          <!-- Department Dropdown -->
+          <td *ngIf="editModeRoleId === role.roleID">
+            <select [(ngModel)]="role.departmentID" class="form-control">
+              <option *ngFor="let dept of departments" [value]="dept.departmentID">
+                {{ dept.departmentName }}
+              </option>
+            </select>
+          </td>
+          <td *ngIf="editModeRoleId !== role.roleID">
+            {{ getDepartmentName(role.departmentID) }}
+          </td>
+
+          <td *ngIf="editModeRoleId === role.roleID">
+            <input type="text" [(ngModel)]="role.roleName" class="form-control">
+          </td>
+          <td *ngIf="editModeRoleId !== role.roleID">
+            {{ role.roleName }}
+          </td>
+          <td>
+            <div class="button-container">
+              <button *ngIf="editModeRoleId !== role.roleID"
+                      class="action-button action-button-edit"
+                      (click)="enterEditMode(role.roleID)">
+                Edit
+              </button>
+              <button *ngIf="editModeRoleId === role.roleID"
+                      class="action-button action-button-submit"
+                      (click)="saveChanges(role)">
+                Submit
+              </button>
+              <button class="action-button action-button-delete"
+                      (click)="onDelete(role.roleID)">
+                Delete
+              </button>
+            </div>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

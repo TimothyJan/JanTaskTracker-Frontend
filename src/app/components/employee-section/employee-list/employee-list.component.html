@@ -1,0 +1,86 @@
+<div class="employee-container text-center">
+  <h1 class="display-4 mb-4">Employee List</h1>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Employee ID</th>
+          <th>Name</th>
+          <th>Salary</th>
+          <th>Department</th>
+          <th>Role</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees">
+          <td>{{ employee.employeeID }}</td>
+
+          <!-- Name Field -->
+          <td *ngIf="editModeEmployeeId === employee.employeeID">
+            <input type="text" [(ngModel)]="employee.name" class="form-control">
+          </td>
+          <td *ngIf="editModeEmployeeId !== employee.employeeID">
+            {{ employee.name }}
+          </td>
+
+          <!-- Salary Field -->
+          <td *ngIf="editModeEmployeeId === employee.employeeID">
+            <input type="number" [(ngModel)]="employee.salary" class="form-control">
+          </td>
+          <td *ngIf="editModeEmployeeId !== employee.employeeID">
+            {{ employee.salary }}
+          </td>
+
+          <!-- Department Dropdown -->
+          <td *ngIf="editModeEmployeeId === employee.employeeID">
+            <select [(ngModel)]="employee.departmentID" (change)="onDepartmentChange(employee.departmentID)" class="form-control">
+              <option *ngFor="let dept of departments" [value]="dept.departmentID">
+                {{ dept.departmentName }}
+              </option>
+            </select>
+          </td>
+          <td *ngIf="editModeEmployeeId !== employee.employeeID">
+            {{ getDepartmentName(employee.departmentID) }}
+          </td>
+
+          <!-- Role Dropdown -->
+          <td *ngIf="editModeEmployeeId === employee.employeeID">
+            <select [(ngModel)]="employee.roleID" class="form-control">
+              <option [value]="rolePlaceholderID" disabled>Select a role</option>
+              <option *ngFor="let role of filteredRoles" [value]="role.roleID">
+                {{ role.roleName }}
+              </option>
+            </select>
+          </td>
+
+          <td *ngIf="editModeEmployeeId !== employee.employeeID">
+            {{ getRoleName(employee.roleID) }}
+          </td>
+
+          <!-- Actions -->
+          <td>
+            <div class="button-container">
+              <button *ngIf="editModeEmployeeId !== employee.employeeID"
+                      class="action-button action-button-edit"
+                      (click)="enterEditMode(employee.employeeID)">
+                Edit
+              </button>
+              <button *ngIf="editModeEmployeeId === employee.employeeID"
+                      class="action-button action-button-submit"
+                      (click)="saveChanges(employee)">
+                Submit
+              </button>
+              <button class="action-button action-button-delete"
+                      (click)="onDelete(employee.employeeID)">
+                Delete
+              </button>
+            </div>
+          </td>
+
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

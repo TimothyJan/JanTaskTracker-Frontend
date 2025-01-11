@@ -1,0 +1,46 @@
+<div class="department-container text-center">
+  <h1 class="display-4 mb-4">Department List</h1>
+
+  <div class="table-responsive">
+    <table class="table table-hover table-striped">
+      <thead>
+        <tr>
+          <th>Department ID</th>
+          <th>Department Name</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let department of departments">
+          <td>{{ department.departmentID }}</td>
+          <td *ngIf="editModeDepartmentId === department.departmentID">
+            <input type="text" [(ngModel)]="department.departmentName" class="form-control">
+          </td>
+          <td *ngIf="editModeDepartmentId !== department.departmentID">
+            {{ department.departmentName }}
+          </td>
+
+          <!-- Action -->
+          <td>
+            <div class="button-container">
+              <button *ngIf="editModeDepartmentId !== department.departmentID"
+                      class="action-button action-button-edit"
+                      (click)="enterEditMode(department.departmentID)">
+                Edit
+              </button>
+              <button *ngIf="editModeDepartmentId === department.departmentID"
+                      class="action-button action-button-submit"
+                      (click)="saveChanges(department)">
+                Submit
+              </button>
+              <button class="action-button action-button-delete"
+                      (click)="onDelete(department.departmentID)">
+                Delete
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

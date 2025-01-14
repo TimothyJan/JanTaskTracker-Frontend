@@ -5,12 +5,12 @@
 }
 
 .btn-primary {
-  background-color: #a1c6b6; /* Sage green */
+  background-color: var(--secondary-color);
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #789b8e;
+  background-color: var(--secondary-color-hover);
 }
 
 .modal-content {

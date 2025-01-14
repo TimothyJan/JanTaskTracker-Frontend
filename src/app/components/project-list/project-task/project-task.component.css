@@ -5,49 +5,39 @@
   padding: 1rem;
 }
 
-.pastel-badge {
-  background-color: #c4e3d3;
-  color: #355f4f;
-  font-weight: bold;
-}
-
-.text-lavender {
-  color: #6c5c7c;
-}
-
 .form-control-sm {
   border-radius: 8px;
   border-color: #ddd;
 }
 
 .btn-primary {
-  background-color: #8b78b8;
-  border-color: #8b78b8;
-  color: #fff;
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+  color: var(--muted-text-color);
 }
 
 .btn-primary:hover {
-  background-color: #755fa1;
+  background-color: var(--primary-color-hover);
 }
 
 .btn-success {
-  background-color: #7ba87e;
-  border-color: #7ba87e;
-  color: #fff;
+  background-color: var(--secondary-color);
+  border-color: var(--secondary-color);
+  color: var(--muted-text-color);
 }
 
 .btn-success:hover {
-  background-color: #628c65;
+  background-color: var(--secondary-color-hover);
 }
 
 .btn-danger {
-  background-color: #cc857d;
-  border-color: #cc857d;
-  color: #fff;
+  background-color: var(--tertiary-color);
+  border-color: var(--tertiary-color);
+  color: var(--muted-text-color);
 }
 
 .btn-danger:hover {
-  background-color: #b46d65;
+  background-color: var(--tertiary-color-hover);
 }
 
 label {

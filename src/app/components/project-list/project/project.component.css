@@ -1,7 +1,7 @@
 /* Card Styling */
 .card {
-  background-color: #f7f2ef; /* Warm beige */
-  border: 1px solid #e1ddd9;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--card-border-color);
   border-radius: 12px;
   padding: 16px;
   transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
@@ -20,33 +20,33 @@
 }
 
 .btn-primary {
-  background-color: #99bfa6; /* Sage green */
+  background-color: var(--secondary-color);
   color: #fff;
   border: none;
 }
 
 .btn-primary:hover {
-  background-color: #7a9e88;
+  background-color: var(--secondary-color-hover);
 }
 
 .btn-success {
-  background-color: #c7cadf; /* Soft lavender */
+  background-color: var(--quaternary-color);
   color: #fff;
   border: none;
 }
 
 .btn-success:hover {
-  background-color: #a8adc9;
+  background-color: var(--quaternary-color-hover);
 }
 
 .btn-danger {
-  background-color: #d7a19e; /* Warm pastel pink */
+  background-color: var(--tertiary-color);
   color: #fff;
   border: none;
 }
 
 .btn-danger:hover {
-  background-color: #b17c79;
+  background-color: var(--tertiary-color-hover);
 }
 
 /* Badge Styling */

@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+
+:root {
+  --sidenav-width: 300px;
+  --primary-color: #4e54c8;
+  --primary-color-hover: #755fa1;
+  --primary-color-disabled: #6f72c9;
+  --secondary-color: #7ba87e;
+  --secondary-color-hover: #628c65;
+  --tertiary-color: #ff4c4c;
+  --tertiary-color-hover: #d43a3a;
+  --quaternary-color: #c7cadf;
+  --quaternary-color-hover: #a8adc9;
+  --card-background-color: #f7f2ef;
+  --card-border-color: #e1ddd9;
+  --accent-color-1: #F4A6A6;
+  --accent-color-2: #F3D9A4;
+  --background-color: #1A1A2E;
+  --text-color: #000000;
+  --muted-text-color: #FFFFFF;
+  --highlight-color: #B4CFEC;
+}

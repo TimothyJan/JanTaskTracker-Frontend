@@ -1,9 +1,9 @@
-
 .department-container {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 2rem;
+  background-color: var(--card-background-color);
+  border: 1px solid var(--card-border-color);
   border-radius: 12px;
-  box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .table thead th {
@@ -21,8 +21,8 @@
 
 /* Button Container */
 .button-container {
-  display: flex; /* Use flexbox to align buttons */
-  gap: 0.5rem; /* Add space between buttons */
+  display: flex;
+  gap: 0.5rem;
   justify-content: center;
 }
 
@@ -31,23 +31,24 @@
   padding: 0.4rem 1rem;
   font-size: 0.9rem;
   border-radius: 8px;
+  border: none;
   transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .action-button-edit {
-  background-color: #fbbd08; /* Warning color */
+  background-color: var(--primary-color);
   color: #fff;
 }
 
 .action-button-edit:hover {
-  background-color: #e6a807;
+  background-color: var(--primary-color-hover);
 }
 
 .action-button-delete {
-  background-color: #ff4c4c; /* Danger color */
+  background-color: var(--tertiary-color);
   color: #fff;
 }
 
 .action-button-delete:hover {
-  background-color: #d43a3a;
+  background-color: var(--tertiary-color-hover);
 }

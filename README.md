@@ -1,5 +1,6 @@
 # JanTaskTracker-Frontend
 JanTaskTracker-Frontend
+Full-stack project task and employee management app with CRUD functionality for projects, tasks, employees, departments, and roles using ASP.NET Core, Angular, Bootstrap, and SQL Server. Frontend portion.
 
 Projects List
 <img src="/public/screenshots/1-ProjectsList.png"><br>

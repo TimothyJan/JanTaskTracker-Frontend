@@ -44,6 +44,15 @@
   background-color: var(--primary-color-hover);
 }
 
+.action-button-submit {
+  background-color: var(--quaternary-color);
+  color: #fff;
+}
+
+.action-button-submit:hover {
+  background-color: var(--quaternary-color-hover);
+}
+
 .action-button-delete {
   background-color: var(--tertiary-color);
   color: #fff;

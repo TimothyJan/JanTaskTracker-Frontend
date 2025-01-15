@@ -94,7 +94,7 @@ export class ProjectComponent {
 
       // Delete projectsTasks with same projectID
       let listOfProjectTaskIDs = this._projectTaskService.getListOfProjectTaskIDsByProjectIDs(this.project.projectID);
-      console.log(this.listOfProjectTaskIDs)
+      // console.log(this.listOfProjectTaskIDs);
       for(var projectTaskID of listOfProjectTaskIDs) {
         this._projectTaskService.deleteProjectTask(projectTaskID);
         this._projectTaskService.notifyProjectTasksChanged();
